@@ -21,8 +21,16 @@ A big thank you to that author, [dempfi](https://github.com/dempfi).
      'hyper-ayu'
    ]
    ```
-3. Fully reload Hyper (`Cmd + Shift + R`)
-4. Profit!
+3. Update hyper config selection color:
+```
+config: {
+  ...
+  selectionColor: '#FFD58066',
+  ...
+}
+```
+4. Fully reload Hyper (`Cmd + Shift + R`)
+5. Profit!
 
 ### Related
 
