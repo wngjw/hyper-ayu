@@ -1,5 +1,5 @@
 // Constants
-const backgroundColor = '#0F1419';
+const backgroundColor = '#0F141999';
 const foregroundColor = '#e6e1cf';
 
 // Colors
@@ -29,7 +29,8 @@ const colors = {
   lightMagenta: MAGENTA,
   lightCyan: BLUE,
   colorCubes: '#fff',
-  grayscale: foregroundColor
+  grayscale: foregroundColor,
+  selectionColor: '#FFD58066'
 };
 
 // Additional Constants
@@ -38,6 +39,14 @@ const borderColor = backgroundColor;
 
 exports.decorateConfig = (config) => {
   let windowControlsCSS
+
+  exports.onWindow = browserWindow => {
+    browserWindow
+      .setVibrancy(
+        Object.prototype.hasOwnProperty.call(config, 'vibrancy') ?
+          config.vibrancy : 'ultra-dark'
+      );
+  };
 
   if (config.showWindowControls) {
     windowControlsCSS = '.list_2902 { margin-left: 0 !important; }'
@@ -57,15 +66,13 @@ exports.decorateConfig = (config) => {
       }
       .hyper_main {
         border: none !important;
-      }
-      .header_header {
-        background: ${backgroundColor} !important;
+        background-color: ${backgroundColor};
       }
       .splitpane_divider {
         background-color: rgba(130, 128, 184, 0.5) !important;
       }
       .tab_tab {
-        border: 0;
+        border: none;
       }
       .tab_textActive {
         background-color: #0c0f12;
